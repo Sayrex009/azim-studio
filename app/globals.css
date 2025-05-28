@@ -1,2 +1,6 @@
 @import "tailwindcss";
 
+
+.global-bg{
+    background-color: #14302C;
+}
