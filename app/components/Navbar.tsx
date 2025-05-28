@@ -36,10 +36,6 @@ export default function Navbar() {
         <Link href="/contact" className="hover:text-gray-300">CONTACT</Link>
       </nav>
 
-      {/* Desktop button */}
-      <button className="hidden lg:flex w-[151px] h-[43px] justify-center items-center bg-white rounded-md">
-        GET IN TOUCH
-      </button>
 
       {/* Mobile menu icon */}
       <div className="lg:hidden z-50">
@@ -67,10 +63,6 @@ export default function Navbar() {
           <Link href="/gallery" onClick={toggleMenu} className="hover:text-gray-300">GALLERY</Link>
           <Link href="/price" onClick={toggleMenu} className="hover:text-gray-300">PRICE</Link>
           <Link href="/contact" onClick={toggleMenu} className="hover:text-gray-300">CONTACT</Link>
-
-          <button className="mt-4 w-[151px] h-[43px] bg-white text-black rounded-md">
-            GET IN TOUCH
-          </button>
         </div>
       </div>
     </header>
