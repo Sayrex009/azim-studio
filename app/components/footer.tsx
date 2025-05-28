@@ -5,7 +5,7 @@ import { FaInstagram, FaApple, FaGoogle, FaFacebookF } from 'react-icons/fa';
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#e4e1dc] py-6 px-4 flex flex-col items-center gap-4 border-t border-black">
+    <footer className="w-full h-full bg-[#e4e1dc] py-6 px-4 flex flex-col items-center gap-4 border-t">
       {/* Навигация */}
       <div className="flex gap-6 flex-wrap justify-center text-black font-medium">
         <Link href="/"><span>/INDEX</span></Link>

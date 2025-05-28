@@ -6,9 +6,7 @@ import Footer from "./components/footer";
 export default function Home() {
   return (
     <div className="global-bg min-h-screen">
-      <Navbar />
       <HomePage/>
-      <Footer/>
     </div>
   );
 }
