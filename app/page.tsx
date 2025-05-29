@@ -7,6 +7,7 @@ export default function Home() {
   return (
     <div className="global-bg min-h-screen">
       <HomePage/>
+      <Footer />
     </div>
   );
 }

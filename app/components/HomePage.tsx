@@ -2,13 +2,15 @@
 
 import Footer from '../components/footer';
 import Navbar from '../components/Navbar';
+import Services from '../components/Services'
+import Video from '../components/Video'
 
 export default function HomePage() {
     return (
         <div className="flex flex-col min-h-screen">
             <Navbar />
 
-            {/* Контентная часть */}
+            {/* Content  */}
             <main className="flex-grow px-4 md:px-10 lg:px-20">
                 <div className="mt-10 sm:mt-16 md:mt-24 text-center">
                     <h1 className="text-[28px] sm:text-[36px] md:text-[60px] lg:text-[120px] tracking-wide text-white leading-tight">
@@ -22,9 +24,13 @@ export default function HomePage() {
                     </p>
                 </div>
             </main>
-
-            {/* Футер */}
-            <Footer />
+            <Services />
+                <Video />
+            <div className="mt-10 bg-[#18202D] py-8 sm:mt-16 md:mt-24 text-center">
+                <h1 className="text-[28px] sm:text-[36px] md:text-[60px] lg:text-[120px] tracking-wide text-white leading-tight">
+                    KASIMOV STUDIO
+                </h1>
+            </div>
         </div>
     );
 }

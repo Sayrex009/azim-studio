@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import AzimLogo from './../../public/icons/LOGO png 1.svg';
 
@@ -29,17 +29,17 @@ export default function Navbar() {
 
       {/* Desktop menu */}
       <nav className="hidden lg:flex space-x-6 justify-center items-center text-white text-sm lg:text-base lg:ml-[900px]">
-        <Link href="/index" className="hover:text-gray-300">INDEX</Link>
         <Link href="/service" className="hover:text-gray-300">SERVICE</Link>
         <Link href="/gallery" className="hover:text-gray-300">GALLERY</Link>
         <Link href="/price" className="hover:text-gray-300">PRICE</Link>
         <Link href="/contact" className="hover:text-gray-300">CONTACT</Link>
+        <Link href="/about" className="hover:text-gray-300">ABOUT</Link>
       </nav>
 
 
       {/* Mobile menu icon */}
       <div className="lg:hidden z-50">
-        <button onClick={toggleMenu} className="text-white focus:outline-none">
+        <button onClick={toggleMenu} className="text-white cursor-pointer focus:outline-none">
           <Menu size={28} />
         </button>
       </div>
@@ -57,12 +57,12 @@ export default function Navbar() {
           </button>
         </div>
 
-        <div className="flex flex-col px-5 space-y-6 mt-10 text-lg font-medium">
-          <Link href="/index" onClick={toggleMenu} className="hover:text-gray-300">INDEX</Link>
-          <Link href="/service" onClick={toggleMenu} className="hover:text-gray-300">SERVICE</Link>
-          <Link href="/gallery" onClick={toggleMenu} className="hover:text-gray-300">GALLERY</Link>
-          <Link href="/price" onClick={toggleMenu} className="hover:text-gray-300">PRICE</Link>
-          <Link href="/contact" onClick={toggleMenu} className="hover:text-gray-300">CONTACT</Link>
+        <div className="flex flex-col px-5 space-y-6 mt-10 text-lg font-medium ">
+          <Link href="/service" onClick={toggleMenu} className="flex border-b h-10 border-white/20 hover:text-gray-300">SERVICE <span className='right-0 absolute px-4'><ChevronRight /></span></Link>
+          <Link href="/gallery" onClick={toggleMenu} className="flex border-b h-10 border-white/20 hover:text-gray-300">GALLERY <span className='right-0 absolute px-4'><ChevronRight /></span></Link>
+          <Link href="/price" onClick={toggleMenu} className="flex border-b h-10 border-white/20 hover:text-gray-300">PRICE <span className='right-0 absolute px-4'><ChevronRight /></span></Link>
+          <Link href="/contact" onClick={toggleMenu} className="flex border-b h-10 border-white/20 hover:text-gray-300">CONTACT <span className='right-0 absolute px-4'><ChevronRight /></span></Link>
+          <Link href="/about" onClick={toggleMenu} className="flex border-b h-10 border-white/20 hover:text-gray-300">About<span className='right-0 absolute px-4'><ChevronRight /></span></Link>
         </div>
       </div>
     </header>

@@ -5,6 +5,7 @@ import Footer from '../components/footer';
 import { MapPin, Phone } from 'lucide-react';
 import Image from 'next/image';
 import BgImg from './../../public/images/bg-img.svg'
+import FaqLists from '../components/FaqLists';
 
 export default function HomePage() {
     return (
@@ -26,12 +27,12 @@ export default function HomePage() {
                     <Image
                         src={BgImg}
                         alt="bg_img"
-                        className="w-full h-auto mb-8 sm:mb-12"
+                        className="w-full h-auto mb-8 sm:mt-12"
                         priority
                     />
                 </div>
             </main>
-            <main className="min-h-screen lg:mb-[-100px]  text-white">
+            <main className="min-h-screen lg:mb-[-100px]   text-white">
                 <div className="flex flex-col items-center justify-center py-12 px-4 md:px-8 lg:px-24">
                     {/* Contact Info */}
                     <div className="grid grid-cols-2 md:grid-cols-2 gap-8 text-center mb-12">
@@ -57,7 +58,7 @@ export default function HomePage() {
                     </div>
 
                     {/* Contact Form */}
-                    <form className="w-full max-w-xl space-y-4">
+                    <form className="w-full max-w-xl space-y-4 ">
                         <div>
                             <label className="block text-xs mb-1" htmlFor="firstName">First name</label>
                             <input
@@ -95,7 +96,7 @@ export default function HomePage() {
                         </div>
                     </form>
                 </div>
-            </main>
+            </main> 
             <Footer />
         </div>
 

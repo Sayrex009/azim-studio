@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="w-full h-full bg-[#e4e1dc] py-6 px-4 flex flex-col items-center gap-4 border-t">
       {/* Навигация */}
       <div className="flex gap-6 flex-wrap justify-center text-black font-medium">
-        <Link href="/"><span>/INDEX</span></Link>
+        <Link href="/about"><span>/ABOUT</span></Link>
         <Link href="/service"><span>/SERVICE</span></Link>
         <Link href="/gallery"><span>GALLERY</span></Link>
         <Link href="/price"><span>/PRICE</span></Link>
