@@ -33,9 +33,11 @@ export default function StudioServices() {
 
   return (
     <section className="py-16 px-4 sm:px-8 lg lg:px-16">
-      <h2 className="text-white text-center text-4xl sm:text-5xl font-bold mb-6">
-        STUDIO SERVICES
-      </h2>
+      <div className="mt-10 sm:mt-16 md:mt-24 text-center">
+        <h1 className="text-[28px] mb-4 sm:text-[36px] md:text-[60px] lg:text-[120px] tracking-wide text-white leading-tight">
+          SERVICE
+        </h1>
+      </div>
       <div className='text-center mt-12 mb-12'>
         <p className="text-white text-[14px] sm:text-[16px] md:text-[20px] lg:text-[28px] leading-relaxed">
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat..."

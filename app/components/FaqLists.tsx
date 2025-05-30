@@ -40,7 +40,7 @@ export default function FaqLists() {
 
     return (
         <main className="min-h-screen text-white flex items-center justify-center p-6">
-            <div className="max-w-[1350px] w-full border border-white/30 p-6 rounded-md">
+            <div className="max-w-[1850px] w-full border border-white/30 p-6 rounded-md">
                 <h1 className="text-5xl font-extrabold text-center mb-10 tracking-wider">FAQ</h1>
                 <div className="space-y-4 ">
                     {faqData.map((item, index) => {
@@ -49,7 +49,7 @@ export default function FaqLists() {
                             <div
                                 key={index}
                                 className={`1rounded-md border ${isActive ? 'border-white/40 bg-white/10' : 'border-transparent'
-                                    } px-4 lg:w-[1300px] lg:h-[80px] transition-all duration-300`}
+                                    } px-4 lg:w-[1400px] lg:h-[80px] transition-all duration-300`}
                             >
                                 <button
                                     onClick={() => toggleItem(index)}

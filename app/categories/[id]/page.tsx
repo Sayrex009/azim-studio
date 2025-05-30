@@ -52,6 +52,11 @@ export default async function CategoryPage({ params }: Props) {
           />
         ))}
       </section>
+      <div className="bg-[#18202D] py-24 text-center">
+        <p className="text-white text-[14px] sm:text-[16px] md:text-[20px] lg:text-[28px] leading-relaxed">
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat..."
+        </p>
+      </div>
       <FaqLists />
       <Footer />
     </main>
