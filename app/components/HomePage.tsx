@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import Services from '../components/Services'
 import Video from '../components/Video'
 import Gallery from './GalleryImages';
+import Karusel from './Karusel';
 
 export default function HomePage() {
     return (
@@ -28,7 +29,8 @@ export default function HomePage() {
             <Video />
             <Services />
             <Gallery />
-            <div className="mt-10 bg-[#18202D] py-8 sm:mt-16 md:mt-24 text-center">
+            <Karusel />
+            <div className="bg-[#18202D] py-8 text-center">
                 <h1 className="text-[28px] sm:text-[36px] md:text-[60px] lg:text-[120px] tracking-wide text-white leading-tight">
                     KASIMOV STUDIO
                 </h1>

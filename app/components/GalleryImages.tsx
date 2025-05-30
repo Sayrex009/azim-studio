@@ -80,7 +80,7 @@ export default function GallerySection() {
                     </div>
 
                     {/* Десктопная версия — грид */}
-                    <div className="hidden sm:grid gap-8 sm:grid-cols-2 lg:grid-cols-3 transition-opacity duration-700 opacity-100">
+                    <div className="hidden sm:grid gap-8 sm:grid-cols-2  lg:grid-cols-3 transition-opacity duration-700 opacity-100">
                         {images.map((image) => (
                             <div
                                 key={image.id}
