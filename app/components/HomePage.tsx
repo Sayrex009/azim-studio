@@ -4,6 +4,7 @@ import Footer from '../components/footer';
 import Navbar from '../components/Navbar';
 import Services from '../components/Services'
 import Video from '../components/Video'
+import Gallery from './GalleryImages';
 
 export default function HomePage() {
     return (
@@ -24,8 +25,9 @@ export default function HomePage() {
                     </p>
                 </div>
             </main>
+            <Video />
             <Services />
-                <Video />
+            <Gallery />
             <div className="mt-10 bg-[#18202D] py-8 sm:mt-16 md:mt-24 text-center">
                 <h1 className="text-[28px] sm:text-[36px] md:text-[60px] lg:text-[120px] tracking-wide text-white leading-tight">
                     KASIMOV STUDIO

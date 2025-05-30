@@ -4,3 +4,17 @@
 .global-bg{
     background-color: #14302C;
 }
+
+
+
+@layer utilities {
+  .scrollbar-hidden {
+    -ms-overflow-style: none; /* IE и Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+}
+

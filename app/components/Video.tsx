@@ -20,7 +20,7 @@ export default function VideosSection() {
         const data = await res.json();
         setVideos(data);
       } catch (err) {
-        if (err.name !== 'AbortError') {
+        if ((err as Error).name !== 'AbortError') {
           console.error('Xatolik video yuklashda:', err);
         }
       } finally {
@@ -35,33 +35,39 @@ export default function VideosSection() {
 
   return (
     <section className="py-16 px-4 sm:px-8 lg:px-16">
-      <h2 className="text-white text-3xl sm:text-4xl font-bold text-center mb-8">
-        STUDIO VIDEOS
-      </h2>
+      <div className="mt-10 sm:mt-16 md:mt-12 text-center">
+        <h1 className="text-[28px] sm:text-[36px] md:text-[60px] lg:text-[120px] tracking-wide text-white leading-tight">
+          VIDEO
+        </h1>
+      </div>
 
       {loading ? (
-        // Skeleton Loader
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 animate-pulse">
+        <div className="flex space-x-4 overflow-x-auto animate-pulse mt-10">
           {Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="h-[300px] bg-gray-700 rounded-xl" />
+            <div
+              key={i}
+              className="min-w-[80%] h-[300px] bg-gray-700 rounded-xl"
+            />
           ))}
         </div>
       ) : videos.length === 0 ? (
-        <p className="text-white text-center">Videolar topilmadi.</p>
+        <p className="text-white text-center mt-10">Videolar topilmadi.</p>
       ) : (
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 transition-opacity duration-700 opacity-100">
-          {videos.map((video) => (
-            <div
-              key={video.id}
-              className="rounded-xl overflow-hidden shadow-lg bg-black/30 p-2 hover:scale-[1.01] transition-transform duration-300"
-            >
-              <video
-                controls
-                className="w-full h-[300px] object-cover rounded-lg"
-                src={video.video}
-              />
-            </div>
-          ))}
+        <div className="-mx-4 px-4 mt-10">
+          <div className="flex overflow-x-auto space-x-4 scrollbar-hidden">
+            {videos.map((video) => (
+              <div
+                key={video.id}
+                className="min-w-[80%] sm:min-w-[50%] lg:min-w-[33%] flex-shrink-0 rounded-xl overflow-hidden shadow-lg bg-black/30 p-2"
+              >
+                <video
+                  controls
+                  className="w-full h-[400px] object-cover rounded-lg"
+                  src={video.video}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </section>

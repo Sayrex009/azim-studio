@@ -11,7 +11,7 @@ export default function Navbar() {
 
   const toggleMenu = () => setMenuOpen(prev => !prev);
 
-  // Запретить скролл при открытом меню
+
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = 'hidden';
@@ -46,12 +46,13 @@ export default function Navbar() {
 
       {/* Fullscreen mobile menu */}
       <div
-        className={`fixed top-0 left-0 w-full h-screen bg-[#1a5149] text-white z-[999] transition-transform duration-300 ease-in-out ${
-          menuOpen ? 'translate-x-0' : '-translate-x-full'
-        }`}
+        className={`fixed top-0 left-0 w-full h-screen bg-[#1a5149] text-white z-[999] transition-transform duration-300 ease-in-out ${menuOpen ? 'translate-x-0' : '-translate-x-full'
+          }`}
       >
         <div className="flex justify-between items-center px-2 border-b border-white/20">
-          <Image src={AzimLogo} alt="logo" className="w-[100px]" />
+          <Link href="/" className="flex items-center justify-center z-50">
+            <Image src={AzimLogo} alt="logo" className="w-[100px]" />
+          </Link>
           <button onClick={toggleMenu} className="text-white">
             <X size={28} />
           </button>
@@ -62,7 +63,7 @@ export default function Navbar() {
           <Link href="/gallery" onClick={toggleMenu} className="flex border-b h-10 border-white/20 hover:text-gray-300">GALLERY <span className='right-0 absolute px-4'><ChevronRight /></span></Link>
           <Link href="/price" onClick={toggleMenu} className="flex border-b h-10 border-white/20 hover:text-gray-300">PRICE <span className='right-0 absolute px-4'><ChevronRight /></span></Link>
           <Link href="/contact" onClick={toggleMenu} className="flex border-b h-10 border-white/20 hover:text-gray-300">CONTACT <span className='right-0 absolute px-4'><ChevronRight /></span></Link>
-          <Link href="/about" onClick={toggleMenu} className="flex border-b h-10 border-white/20 hover:text-gray-300">About<span className='right-0 absolute px-4'><ChevronRight /></span></Link>
+          <Link href="/about" onClick={toggleMenu} className="flex border-b h-10 border-white/20 hover:text-gray-300">ABOUT<span className='right-0 absolute px-4'><ChevronRight /></span></Link>
         </div>
       </div>
     </header>

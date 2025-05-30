@@ -32,19 +32,20 @@ export default function StudioServices() {
   }, []);
 
   return (
-    <section className="py-16 px-4 sm:px-8 lg:px-16">
+    <section className="py-16 px-4 sm:px-8 lg lg:px-16">
       <h2 className="text-white text-center text-4xl sm:text-5xl font-bold mb-6">
         STUDIO SERVICES
       </h2>
-      <p className="text-white text-center max-w-2xl mx-auto mb-12">
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-      </p>
+      <div className='text-center mt-12 mb-12'>
+        <p className="text-white text-[14px] sm:text-[16px] md:text-[20px] lg:text-[28px] leading-relaxed">
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat..."
+        </p>
+      </div>
 
       {loading ? (
         <div className="text-white text-center">Yuklanmoqda...</div>
       ) : (
         <>
-          {/* Карусель для sm и меньше */}
           <div className="block sm:hidden">
             <Swiper
               spaceBetween={16}
@@ -66,7 +67,7 @@ export default function StudioServices() {
                           blurDataURL="/blur-placeholder.jpg"
                           onError={(e) => {
                             const target = e.target as HTMLImageElement;
-                            target.src = '/fallback.jpg'; // fallback изображение
+                            target.src = '/fallback.jpg';
                           }}
                         />
                       </div>

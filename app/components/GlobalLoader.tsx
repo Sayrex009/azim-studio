@@ -15,8 +15,8 @@ export default function GlobalLoader() {
 
     // fallback if router.events is undefined (App Router)
     // so usePathname instead
-    start(); // небольшая имитация загрузки
-    const timeout = setTimeout(end, 500); // всегда скрыть через 500ms
+    start(); 
+    const timeout = setTimeout(end, 500);
 
     return () => clearTimeout(timeout);
   }, [pathname]);
