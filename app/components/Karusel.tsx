@@ -16,7 +16,7 @@ export default function AboutPage() {
 
     return (
         <section className="min-h-screen mt-[-200px] flex flex-col justify-center items-center text-white relative overflow-hidden">
-            <div className="text-center">
+            <div className="text-center lg:mt-64">
                 <h1 className="text-white text-4xl md:text-6xl font-extrabold uppercase mt-12 tracking-wide">
                     Bizning Hamkorlar
                 </h1>

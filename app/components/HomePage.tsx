@@ -20,7 +20,7 @@ export default function HomePage() {
                     </h1>
                 </div>
 
-                <div className="mt-6 sm:mt-10 md:mt-12 text-center">
+                <div className="mt-6 sm:mt-10 md:mt-12 text-center mb-12">
                     <p className="text-white text-[14px] sm:text-[16px] md:text-[20px] lg:text-[28px] leading-relaxed">
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat..."
                     </p>
@@ -29,6 +29,11 @@ export default function HomePage() {
             <Video />
             <Services />
             <Gallery />
+            <div className='text-center mt-12 px-24'>
+                <p className="text-white text-[14px] sm:text-[16px] md:text-[20px] lg:text-[28px] leading-relaxed">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat..."
+                </p>
+            </div>
             <Karusel />
             <div className="bg-[#18202D] py-8 text-center">
                 <h1 className="text-[28px] sm:text-[36px] md:text-[60px] lg:text-[120px] tracking-wide text-white leading-tight">

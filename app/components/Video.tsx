@@ -1,7 +1,11 @@
-'use client';
+"use client";
 
-import { useEffect, useState, useRef } from 'react';
-import { FaPlay, FaPause } from 'react-icons/fa';
+import { useEffect, useState, useRef } from "react"; // Добавлен useRef
+import { FaPlay, FaPause } from "react-icons/fa";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
 
 interface VideoItem {
   id: number;
@@ -18,12 +22,12 @@ export default function VideosSection() {
 
     const fetchVideos = async () => {
       try {
-        const res = await fetch('/api/video', { signal: controller.signal });
+        const res = await fetch("/api/video", { signal: controller.signal });
         const data = await res.json();
         setVideos(data);
       } catch (err) {
-        if ((err as Error).name !== 'AbortError') {
-          console.error('Xatolik video yuklashda:', err);
+        if ((err as Error).name !== "AbortError") {
+          console.error("Xatolik video yuklashda:", err);
         }
       } finally {
         setLoading(false);
@@ -46,36 +50,60 @@ export default function VideosSection() {
   };
 
   return (
-    <section className="py-16 px-4 sm:px-8 lg:px-16">
-      <div className="mt-10 sm:mt-16 md:mt-12 text-center">
+    <section className="relative z-10 py-16 px-4 sm:px-8 lg:px-16 bg-[#18202D]">
+      <div className="text-center">
         <h1 className="text-[28px] sm:text-[36px] md:text-[60px] lg:text-[120px] tracking-wide text-white leading-tight">
           VIDEO
         </h1>
       </div>
 
       {loading ? (
-        <div className="flex space-x-4 overflow-x-auto animate-pulse mt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 mt-10 animate-pulse">
           {Array.from({ length: 6 }).map((_, i) => (
-            <div
-              key={i}
-              className="min-w-[80%] h-[300px] bg-gray-700 rounded-xl"
-            />
+            <div key={i} className="h-[300px] bg-gray-700 rounded-xl" />
           ))}
         </div>
       ) : videos.length === 0 ? (
-        <p className="text-white text-center mt-10">Videolar topilmadi.</p>
+        <p className="text-white text-center mt-10">Video topilmadi</p>
       ) : (
-        <div className="-mx-4 px-6  mt-10">
-          <div className="flex overflow-x-auto space-x-4 custom-scrollbar pr-2">
+        <div className="mt-10 px-10">
+          <Swiper
+            modules={[Navigation]}
+            navigation
+            spaceBetween={30}
+            slidesPerView={1}
+            breakpoints={{
+              640: {
+                slidesPerView: 1.5,
+                spaceBetween: 20
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 25
+              },
+              1024: {
+                slidesPerView: 2.5,
+                spaceBetween: 30
+              },
+              1280: {
+                slidesPerView: 3,
+                spaceBetween: 35
+              }
+            }}
+            centeredSlides={true}
+            loop={true}
+            className="video-swiper"
+          >
             {videos.map((video) => (
-              <VideoCard
-                key={video.id}
-                video={video}
-                isPlaying={playingVideoId === video.id}
-                onTogglePlay={togglePlay}
-              />
+              <SwiperSlide key={video.id}>
+                <VideoCard
+                  video={video}
+                  isPlaying={playingVideoId === video.id}
+                  onTogglePlay={togglePlay}
+                />
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         </div>
       )}
     </section>
@@ -94,21 +122,14 @@ function VideoCard({
   const videoRef = useRef<HTMLVideoElement>(null);
 
   return (
-    <div
-      className="f-full h-full flex-shrink-0 rounded-xl overflow-hidden shadow-lg bg-black/30 p-2 relative"
-      style={{
-        width: '100%',
-        maxWidth: '400px',
-      }}
-    >
+    <div className="rounded-xl overflow-hidden shadow-lg bg-black/30 p-2 relative w-full h-[500px]">
       <video
         ref={videoRef}
         controls
-        className="w-full object-cover rounded-lg h-[250px] sm:h-[350px] lg:h-[490px] transition-all duration-300"
+        className="w-full h-full object-cover rounded-lg transition-all duration-300"
         src={video.video}
       />
 
-      {/* Play/Pause button */}
       <button
         className="absolute inset-0 flex items-center justify-center text-white bg-black/50 hover:bg-black/70 transition rounded-lg lg:hidden"
         onClick={() =>

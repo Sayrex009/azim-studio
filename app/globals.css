@@ -33,3 +33,23 @@
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background-color: #999;
 }
+
+.video-swiper .swiper-button-next,
+.video-swiper .swiper-button-prev {
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.video-swiper .swiper-button-next:hover,
+.video-swiper .swiper-button-prev:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.video-swiper .swiper-button-next::after,
+.video-swiper .swiper-button-prev::after {
+  font-size: 20px;
+}
