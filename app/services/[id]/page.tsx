@@ -133,7 +133,9 @@ export default function ServicePage(): JSX.Element {
                     <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">
                       {service.title}
                     </h3>
-                    <p className="text-sm sm:text-base">{service.description}</p>
+                    <p className="text-sm sm:text-base">
+                      {service.description}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -175,7 +177,9 @@ export default function ServicePage(): JSX.Element {
                       />
                     </div>
                     <div className="absolute bottom-0 left-0 right-0 p-4 bg-black/50 text-white rounded-b-lg">
-                      <h3 className="text-lg font-semibold mb-2">{service.title}</h3>
+                      <h3 className="text-lg font-semibold mb-2">
+                        {service.title}
+                      </h3>
                       <p className="text-sm">{service.description}</p>
                     </div>
                   </div>
@@ -191,6 +195,9 @@ export default function ServicePage(): JSX.Element {
       </div>
 
       <FaqLists />
+      <div className="lg:hidden">
+        <Footer />
+      </div>
     </div>
   );
 }

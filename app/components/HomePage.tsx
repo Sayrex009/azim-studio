@@ -38,6 +38,11 @@ export default function HomePage() {
       </main>
       <Video />
       <Services />
+      <div className="sm:mt-16 md:mt-24 text-center">
+        <h1 className="text-[28px] mb-4 sm:text-[36px] md:text-[60px] lg:text-[120px] tracking-wide text-white leading-tight">
+          GALLERY
+        </h1>
+      </div>
       <Gallery />
       <div className="text-center mt-12 px-24">
         <p className="text-white text-[14px] sm:text-[16px] md:text-[20px] lg:text-[28px] leading-relaxed">
@@ -48,10 +53,13 @@ export default function HomePage() {
         </p>
       </div>
       <Karusel />
-      <div className="bg-[#18202D] py-8 mt-12 text-center">
+      <div className="bg-[#18202D] py-8 lg:mt-[40px] mt-[-80px] text-center">
         <h1 className="text-[28px] sm:text-[36px] md:text-[60px] lg:text-[120px] tracking-wide text-white leading-tight">
           KASIMOV STUDIO
         </h1>
+      </div>
+      <div className="lg:hidden">
+      <Footer/>
       </div>
     </div>
   );

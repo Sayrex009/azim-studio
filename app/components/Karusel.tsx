@@ -24,17 +24,20 @@ export default function AboutPage() {
   return (
     <section className="min-h-screen relative mt-[-200px] flex flex-col justify-center items-center text-white overflow-x-hidden">
       {/* Верхняя линия - бордер */}
-      <div className="absolute top-0 mt-[300px] left-0 w-full border-t-2 border-gray-200" style={{ maxWidth: "100vw" }}></div>
+      <div
+        className="absolute top-0 mt-[300px] left-0 w-full border-t-2 border-gray-200"
+        style={{ maxWidth: "100vw" }}
+      ></div>
 
       <div className="text-center lg:mt-64 mt-20 px-4">
-        <h1 className="text-white text-4xl md:text-6xl font-extrabold uppercase tracking-wide">
+        <h1 className="text-white mt-4 text-4xl md:text-6xl font-extrabold uppercase tracking-wide">
           Bizning Hamkorlar
         </h1>
       </div>
 
       <div className="w-full py-12 bg-gradient-to-b from-[#D9D9D9] to-[#bcbcbc] mt-10 overflow-hidden">
         {/* Верхняя карусель */}
-        <Marquee gradient={false} speed={40} pauseOnHover>
+        <Marquee gradient={false} speed={80}>
           <div className="flex gap-6 px-2 md:px-6">
             {icons.map((icon, index) => (
               <div
@@ -48,7 +51,7 @@ export default function AboutPage() {
         </Marquee>
 
         {/* Нижняя карусель — в обратную сторону */}
-        <Marquee gradient={false} speed={40} direction="right" pauseOnHover>
+        <Marquee gradient={false} speed={80} direction="right">
           <div className="flex gap-6 px-2 md:px-6 mt-6">
             {icons.map((icon, index) => (
               <div
@@ -61,9 +64,15 @@ export default function AboutPage() {
           </div>
         </Marquee>
       </div>
+      <div
+        className="absolute bottom-0 left-0 w-full hidden lg:block border-b-2 border-gray-200"
+        style={{ maxWidth: "100vw" }}
+      ></div>
 
-      {/* Нижняя линия - бордер */}
-      <div className="absolute bottom-0 left-0 w-full border-b-2 border-gray-200" style={{ maxWidth: "100vw" }}></div>
+      <div
+        className="absolute bottom-0 left-0 w-full lg:hidden mb-48 border-b-2 border-gray-200"
+        style={{ maxWidth: "100vw" }}
+      ></div>
     </section>
   );
 }

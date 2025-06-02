@@ -62,11 +62,7 @@ export default function GallerySection() {
   return (
     <section className="px-4 sm:px-8 lg:px-16 relative">
       {/* Уменьшаем верхний отступ заголовка на мобильных */}
-      <div className="sm:mt-16 md:mt-24 text-center">
-        <h1 className="text-[28px] mb-4 sm:text-[36px] md:text-[60px] lg:text-[120px] tracking-wide text-white leading-tight">
-          GALLERY
-        </h1>
-      </div>
+      
 
       {loading ? (
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 animate-pulse">
