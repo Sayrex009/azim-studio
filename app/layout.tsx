@@ -1,8 +1,8 @@
-// app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import GlobalLoader from "./components/GlobalLoader"; // путь может отличаться
+import GlobalLoader from "./components/GlobalLoader"; // проверь путь
+import Footer from './components/footer'; // подключи Footer, проверь путь
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,9 +26,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="global-bg">
+      <body className={`global-bg flex flex-col min-h-screen font-sans`}>
         <GlobalLoader />
-        {children}
+        <main className="flex-grow">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

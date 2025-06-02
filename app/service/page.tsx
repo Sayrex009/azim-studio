@@ -1,6 +1,5 @@
 "use client";
 
-import Footer from "../components/footer";
 import Navbar from "../components/Navbar";
 import StudioServices from "../components/Services";
 export default function HomePage() {
@@ -23,7 +22,6 @@ export default function HomePage() {
           </p>
         </div>
       </div>
-      <Footer />
     </main>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Swiper, SwiperSlide, SwiperRef } from "swiper/react";
 import { Pagination } from "swiper/modules";
@@ -21,6 +22,7 @@ export default function ServiceCategoriesList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const swiperRef = useRef<SwiperRef>(null);
+  const router = useRouter();
 
   const goNext = () => {
     swiperRef.current?.swiper.slideNext();
@@ -47,6 +49,10 @@ export default function ServiceCategoriesList() {
     fetchCategories();
   }, []);
 
+  const handleClick = (id: number) => {
+    router.push(`/services/${id}`);
+  };
+
   if (loading) {
     return (
       <div className="p-4 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -66,7 +72,7 @@ export default function ServiceCategoriesList() {
     );
   }
 
-  if (error) return <p className="text-red-600">Ошибка: {error}</p>;
+  if (error) return <p className="text-red-600">{error}</p>;
 
   return (
     <div className="relative px-2 md:px-4">
@@ -75,7 +81,8 @@ export default function ServiceCategoriesList() {
           Service
         </h1>
       </div>
-      {/* Мобильная карусель с кнопками навигации */}
+
+      {/* Мобильная карусель */}
       <div className="block md:hidden relative">
         <Swiper
           ref={swiperRef}
@@ -83,15 +90,15 @@ export default function ServiceCategoriesList() {
           spaceBetween={12}
           slidesPerView={1.1}
           centeredSlides={true}
-          pagination={{
-            clickable: true,
-            dynamicBullets: true,
-          }}
+          pagination={{ clickable: true, dynamicBullets: true }}
           className="!pb-10"
         >
           {categories.map((cat) => (
             <SwiperSlide key={cat.id}>
-              <div className="rounded-xl overflow-hidden shadow-lg relative mx-1">
+              <div
+                className="rounded-xl overflow-hidden shadow-lg relative mx-1 cursor-pointer"
+                onClick={() => handleClick(cat.id)}
+              >
                 <div className="relative h-[380px] w-full">
                   <Image
                     src={cat.image}
@@ -111,31 +118,15 @@ export default function ServiceCategoriesList() {
             </SwiperSlide>
           ))}
         </Swiper>
-
-        {/* Кнопки навигации */}
-        <div className="flex justify-center gap-4 mt-2">
-          <button
-            onClick={goPrev}
-            className="p-2 rounded-full bg-white/90 shadow-md hover:bg-white transition-colors"
-            aria-label="Previous slide"
-          >
-            <ChevronLeft className="w-5 h-5 text-gray-800" />
-          </button>
-          <button
-            onClick={goNext}
-            className="p-2 rounded-full bg-white/90 shadow-md hover:bg-white transition-colors"
-            aria-label="Next slide"
-          >
-            <ChevronRight className="w-5 h-5 text-gray-800" />
-          </button>
-        </div>
       </div>
 
-      <div className="hidden cursor-pointer md:flex flex-wrap px-16 gap-6">
+      {/* Версия для desktop */}
+      <div className="hidden md:flex flex-wrap px-16 gap-6">
         {categories.map((cat) => (
           <div
             key={cat.id}
-            className="rounded-xl overflow-hidden shadow-lg max-w-[400px] w-full"
+            onClick={() => handleClick(cat.id)}
+            className="rounded-xl overflow-hidden shadow-lg max-w-[400px] w-full cursor-pointer transition-transform hover:scale-[1.01]"
           >
             <div className="relative h-[600px] w-full">
               <Image

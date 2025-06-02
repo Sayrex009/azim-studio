@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react"; // Добавлен useRef
+import { useEffect, useState, useRef } from "react";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -64,7 +64,7 @@ export default function VideosSection() {
           ))}
         </div>
       ) : videos.length === 0 ? (
-        <p className="text-white text-center mt-10">Video topilmadi</p>
+        <p className="text-white text-center mt-10"></p>
       ) : (
         <div className="mt-10 px-10">
           <Swiper
@@ -75,20 +75,20 @@ export default function VideosSection() {
             breakpoints={{
               640: {
                 slidesPerView: 1.5,
-                spaceBetween: 20
+                spaceBetween: 20,
               },
               768: {
                 slidesPerView: 2,
-                spaceBetween: 25
+                spaceBetween: 25,
               },
               1024: {
                 slidesPerView: 2.5,
-                spaceBetween: 30
+                spaceBetween: 30,
               },
               1280: {
                 slidesPerView: 3,
-                spaceBetween: 35
-              }
+                spaceBetween: 35,
+              },
             }}
             centeredSlides={true}
             loop={true}
