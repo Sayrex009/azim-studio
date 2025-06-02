@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { ChevronDown, CheckCircle, Circle } from "lucide-react";
 
 interface FaqItem {
@@ -15,27 +15,27 @@ export default function FaqLists() {
     {
       question: "Lorem ipsum dolor sit amet, consectetur adipiscing?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
     },
     {
       question: "Lorem ipsum dolor sit amet, consectetur adipiscing?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
     },
     {
       question: "Lorem ipsum dolor sit amet, consectetur adipiscing?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
     },
     {
       question: "Lorem ipsum dolor sit amet, consectetur adipiscing?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
     },
     {
       question: "Lorem ipsum dolor sit amet, consectetur adipiscing?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
     },
   ];
 
@@ -45,25 +45,29 @@ export default function FaqLists() {
 
   return (
     <main className="min-h-screen lg:mt-[-120px] lg:mb-[-120px] px-12 text-white flex items-center justify-center p-6">
-      <div className="max-w-[1750px] w-full border border-white/30 p-6 rounded-md">
+      <div className="max-w-[1750px] w-full border border-white/30 p-6 rounded-md bg-black/10">
         <h1 className="text-5xl font-extrabold text-center mb-10 tracking-wider">
           FAQ
         </h1>
-        <div className="space-y-4 ">
+        <div className="space-y-4">
           {faqData.map((item, index) => {
             const isActive = activeIndex === index;
             return (
-              <div
+              <section
                 key={index}
-                className={`1rounded-md border ${
+                className={`rounded-md border transition-all duration-300 ${
                   isActive
-                    ? "border-white/40 bg-white/10"
-                    : "border-transparent"
-                } px-4 lg:w-[1700px] lg:h-[80px] transition-all duration-300`}
+                    ? "border-white/40 bg-white/10 shadow-lg"
+                    : "border-transparent hover:border-white/20"
+                } px-4 lg:w-[1700px] lg:h-auto`}
+                aria-expanded={isActive}
               >
                 <button
                   onClick={() => toggleItem(index)}
-                  className="flex items-start w-full text-left gap-4"
+                  className="flex items-center w-full text-left gap-4 py-4"
+                  aria-controls={`faq-panel-${index}`}
+                  aria-expanded={isActive}
+                  id={`faq-header-${index}`}
                 >
                   <div className="pt-1">
                     {isActive ? (
@@ -72,13 +76,13 @@ export default function FaqLists() {
                       <Circle className="w-5 h-5 text-white" />
                     )}
                   </div>
-                  <div className="flex-1">
-                    <p
-                      className={`font-semibold text-lg text-white ${isActive ? "text-green-300" : ""}`}
-                    >
-                      {item.question}
-                    </p>
-                  </div>
+                  <p
+                    className={`flex-1 font-semibold text-lg transition-colors duration-300 ${
+                      isActive ? "text-green-300" : "text-white"
+                    }`}
+                  >
+                    {item.question}
+                  </p>
                   <ChevronDown
                     className={`w-5 h-5 mt-1 transition-transform duration-300 ${
                       isActive ? "rotate-180 text-yellow-300" : "text-white"
@@ -86,19 +90,19 @@ export default function FaqLists() {
                   />
                 </button>
 
-                {/* Smooth effects*/}
                 <div
-                  className={`grid transition-all duration-500 ease-in-out overflow-hidden ${
-                    isActive
-                      ? "grid-rows-[1fr] opacity-100 mt-3"
-                      : "grid-rows-[0fr] opacity-0"
+                  id={`faq-panel-${index}`}
+                  role="region"
+                  aria-labelledby={`faq-header-${index}`}
+                  className={`overflow-hidden transition-[max-height,opacity] duration-500 ease-in-out ${
+                    isActive ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                   }`}
                 >
-                  <div className="overflow-hidden text-white/80 text-sm leading-relaxed">
+                  <p className="text-white/80 text-sm leading-relaxed pb-4">
                     {item.answer}
-                  </div>
+                  </p>
                 </div>
-              </div>
+              </section>
             );
           })}
         </div>

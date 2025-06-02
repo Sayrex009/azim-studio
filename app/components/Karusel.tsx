@@ -22,41 +22,48 @@ export default function AboutPage() {
   ];
 
   return (
-    <section className="min-h-screen mt-[-200px] flex flex-col justify-center items-center text-white relative overflow-hidden">
-      <div className="text-center lg:mt-64">
-        <h1 className="text-white text-4xl md:text-6xl font-extrabold uppercase mt-12 tracking-wide">
+    <section className="min-h-screen relative mt-[-200px] flex flex-col justify-center items-center text-white overflow-x-hidden">
+      {/* Верхняя линия - бордер */}
+      <div className="absolute top-0 mt-[300px] left-0 w-full border-t-2 border-gray-200" style={{ maxWidth: "100vw" }}></div>
+
+      <div className="text-center lg:mt-64 mt-20 px-4">
+        <h1 className="text-white text-4xl md:text-6xl font-extrabold uppercase tracking-wide">
           Bizning Hamkorlar
         </h1>
       </div>
-      <div className="w-full py-16 bg-gradient-to-b from-[#D9D9D9] to-[#bcbcbc] mt-10">
+
+      <div className="w-full py-12 bg-gradient-to-b from-[#D9D9D9] to-[#bcbcbc] mt-10 overflow-hidden">
         {/* Верхняя карусель */}
-        <Marquee gradient={false} speed={40}>
-          <div className="flex gap-10 px-4">
+        <Marquee gradient={false} speed={40} pauseOnHover>
+          <div className="flex gap-6 px-2 md:px-6">
             {icons.map((icon, index) => (
               <div
                 key={index}
-                className="bg-gray-400 w-24 h-24 md:w-32 md:h-32 flex items-center justify-center rounded-md shadow-md"
+                className="bg-gray-400 w-20 h-20 md:w-28 md:h-28 flex items-center justify-center rounded-md shadow-md"
               >
-                <div className="text-black text-3xl md:text-5xl">{icon}</div>
+                <div className="text-black text-2xl md:text-4xl">{icon}</div>
               </div>
             ))}
           </div>
         </Marquee>
 
         {/* Нижняя карусель — в обратную сторону */}
-        <Marquee gradient={false} speed={40} direction="right">
-          <div className="flex gap-10 px-4 mt-8">
+        <Marquee gradient={false} speed={40} direction="right" pauseOnHover>
+          <div className="flex gap-6 px-2 md:px-6 mt-6">
             {icons.map((icon, index) => (
               <div
                 key={index}
-                className="bg-gray-400 w-24 h-24 md:w-32 md:h-32 flex items-center justify-center rounded-md shadow-md"
+                className="bg-gray-400 w-20 h-20 md:w-28 md:h-28 flex items-center justify-center rounded-md shadow-md"
               >
-                <div className="text-black text-3xl md:text-5xl">{icon}</div>
+                <div className="text-black text-2xl md:text-4xl">{icon}</div>
               </div>
             ))}
           </div>
         </Marquee>
       </div>
+
+      {/* Нижняя линия - бордер */}
+      <div className="absolute bottom-0 left-0 w-full border-b-2 border-gray-200" style={{ maxWidth: "100vw" }}></div>
     </section>
   );
 }

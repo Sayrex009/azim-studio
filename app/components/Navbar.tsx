@@ -65,7 +65,7 @@ export default function Navbar() {
 
       {/* Fullscreen mobile menu */}
       <div
-        className={`fixed top-0 left-0 w-full h-screen bg-[#1a5149] text-white z-[999] transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 w-full h-screen bg-[#18202D] text-white z-[999] transition-transform duration-300 ease-in-out ${
           menuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
