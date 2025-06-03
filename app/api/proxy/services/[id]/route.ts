@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
 
 export async function GET(
-  request: Request,
-  context: { params: { id: string } }
+  req: Request,
+  { params }: { params: { id: string } }
 ) {
-  const { id } = context.params;
+  const { id } = params;
+
   try {
     const res = await fetch(
       `https://kasimov.repid.uz/api/v1/common/services/${id}/`
