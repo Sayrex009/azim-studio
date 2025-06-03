@@ -58,9 +58,6 @@ export default function HomePage() {
           KASIMOV STUDIO
         </h1>
       </div>
-      <div className="lg:hidden">
-      <Footer/>
-      </div>
     </div>
   );
 }

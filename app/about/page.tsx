@@ -144,9 +144,6 @@ export default function HomePage() {
           pariatur.
         </p>
       </div>
-      <div className="lg:hidden">
-        <Footer />
-      </div>
     </main>
   );
 }

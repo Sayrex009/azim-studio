@@ -51,9 +51,7 @@ export default function HomePage() {
           in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         </p>
       </div>
-      <div className="lg:hidden">
-        <Footer />
-      </div>
+      
     </main>
   );
 }

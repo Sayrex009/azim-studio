@@ -195,9 +195,6 @@ export default function ServicePage(): JSX.Element {
       </div>
 
       <FaqLists />
-      <div className="lg:hidden">
-        <Footer />
-      </div>
     </div>
   );
 }

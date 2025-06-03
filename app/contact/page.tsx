@@ -105,9 +105,6 @@ export default function HomePage() {
           </form>
         </div>
       </main>
-      <div className="lg:hidden">
-        <Footer />
-      </div>
     </div>
   );
 }
